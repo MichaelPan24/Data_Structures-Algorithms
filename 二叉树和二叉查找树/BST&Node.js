@@ -1,3 +1,4 @@
+//定义node节点类
 function Node(data, left, right) {
     this.data = data;
     this.left = left;
@@ -9,20 +10,39 @@ function Node(data, left, right) {
     return this.data;
  }
  
+ //定义二叉树类
  function BST() {
+     //初始化根节点为null
     this.root = null;
     this.insert = insert;
+    //中序遍历
     this.inOrder = inOrder;
+    //先序遍历
     this.preOrder = preOrder;
+    //后序遍历
     this.postOrder = postOrder;
+    //得到最小值
     this.getmin = getmin;
+    //得到最大值
     this.getmax = getmax;
+    //查找节点
     this.find = find;
+    //移除数据
     this.remove = remove;
+    //移除节点
     this.removeNode = removeNode;
+    //查询最小值
     this.getSmallest = getSmallest;
  }
- 
+ /**
+  * 
+  * @param data 待插入的数据
+  * 首先判断如果当前待插入树的根节点为null,则设树根节点为data 
+  * 否则准备遍历二叉树
+  * 首先设置当前节点为根节点,如果待插入数据小于当前节点数据,
+  * 则设置新的当前节点为原当前节点的左节点,如果新的当前节点为null,则将数据插入到原当前节点的左边退出循环,
+  * 对于右节点同理
+  */
  function insert(data) {
     var n = new Node(data, null, null);
     if (this.root == null) {
