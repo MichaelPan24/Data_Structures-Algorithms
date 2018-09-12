@@ -74,14 +74,14 @@ function Node(data, left, right) {
  function inOrder(node) {
     if (!(node == null)) {
        inOrder(node.left);
-       putstr(node.show() + " ");
+       console.log(node.show() + " ");
        inOrder(node.right);
     }
  }
  
  function preOrder(node) {
     if (!(node == null)) {
-       putstr(node.show() + " ");
+       console.log(node.show() + " ");
        preOrder(node.left);
        preOrder(node.right);
     }
@@ -91,13 +91,13 @@ function Node(data, left, right) {
     if (!(node == null)) {
        postOrder(node.left);
        postOrder(node.right);
-       putstr(node.show() + " ");
+       console.log(node.show() + " ");
     }
  }
  
  function getmin() {
     var current = this.root;
-    print("debug: " + current.data);
+    console.log("debug: " + current.data);
     while (!(current.left == null)) {
        current = current.left;
     }
@@ -125,7 +125,7 @@ function Node(data, left, right) {
           return null;
        }
     }
-    return current;
+    console.log(current);
  }
  
  function getSmallest(node) {
@@ -174,3 +174,36 @@ function Node(data, left, right) {
     }
  }
 
+//测试用例
+var bst =new BST();
+bst.insert(11)
+bst.insert(14)
+bst.insert(61)
+bst.insert(17)
+bst.insert(51)
+bst.insert(12);
+
+inOrder(bst.root);
+console.log("\n")
+preOrder(bst.root);
+console.log("\n")
+postOrder(bst.root);
+
+console.log(a);
+var a =10;
+var a = function(){
+    console.log(3)
+}
+function a(){
+    console.log(2)
+}
+a();
+a();
+
+/**
+ * 总结:中序遍历遵循左根右,前序遍历遵循根左右,后序遍历遵循左右根
+ * 当确定了二叉树的中序遍历以及其中任何一种遍历时,即可唯一确定此二叉树;
+ * 判断方法:
+ * 由后续(先序)遍历即可确定二叉树的根节点,然后转而看中序遍历中根节点的位置依次来确定左右子树;
+ * 依次重复上述方法来确定根节点位置以及其左右子树,来得出最终二叉树
+ */
