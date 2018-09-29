@@ -25,7 +25,10 @@ var newArr = arr1.concat(arr2);
  *注意:如果不对原数组的元素的引用进行操作是无法改变数组元素的,除非数组中的元素存在引用类型(坑)
  *参数说明:val当前数组元素的引用,key当前数组元素的索引(可选),arr当前数组(可选)   
  */
-
-arr2.forEach((val,key,arr)=>{
-    
+let i=0
+arr1.forEach((val,key,arr)=>{
+    arr[key] += i;
+    i++
 })
+console.log(arr1)//[1,4,5,4]
+
